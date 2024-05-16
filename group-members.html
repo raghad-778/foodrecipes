@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Members</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        /* Internal CSS for demonstration */
+        #members {
+            list-style-type: none;
+            padding: 0;
+        }
+        #members li {
+            padding: 5px;
+            margin: 5px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Group Members</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="diet-recipes.html">Diet Recipes</a></li>
+                <li><a href="meat-recipes.html">Protein Recipes</a></li>
+                <li><a href="vegetarian-recipes.html">Vegetarian Recipes</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="group-members.html">Group Members</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Our Team</h2>
+            <ul id="members">
+                <!-- List of members will be populated by JavaScript -->
+            </ul>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Recipe Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const members = ["Raghad Salman", "Sara Ahmed", "Lara Alnajdi"];
+        
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        
+        function displayMembers() {
+            shuffle(members);
+            const membersList = document.getElementById('members');
+            membersList.innerHTML = '';
+            members.forEach(member => {
+                const li = document.createElement('li');
+                li.textContent = member;
+                membersList.appendChild(li);
+            });
+        }
+        
+        displayMembers();
+    </script>
+</body>
+</html>
